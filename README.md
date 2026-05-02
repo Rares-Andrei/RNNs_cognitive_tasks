@@ -85,7 +85,7 @@ print(ngym.all_envs())
 
 ## Models
 
-`base_rnn` is a plain RNN — fast, no time constant. You can use it for most discrete-time tasks.
+`base_rnn` is a plain RNN - fast, no time constant. You can use it for most discrete-time tasks.
 
 `ctrnn` is a continuous-time RNN with a `tau` parameter controlling how fast neurons integrate. It's slower to train but the dynamics are closer to what you'd expect from biology, and it's the right choice when the task itself has slow timescales.
 
