@@ -1,0 +1,17 @@
+seed: 42
+task: ???
+act_fn: softplus  # Activation function to use in hidden layer
+task_to_eval: False  # When evaluating, we can select a model that was trained on another task, not necessarily the one we evaluate on
+model: ???
+tau: 1000  # Time constant like NMDA receptors, only used for CTRNN. If dt=100, then tau=100 corresponds to alpha=1, so it will have no effect and behave like a normal RNN. Set tau=1000 to have a stronger effect with dt=100.
+hidden_size: 128
+lr: 0.01
+batch_size: 16
+seq_len: 100
+num_epochs: 1000
+class_weights: False  # Whether to use class weights in the loss function, set to True if you want to use them
+dt: None  # This specifices dt in case of a CTRNN
+kwargs:  # This specifies parameters for the environment
+  dt: None
+  dim_ring: 2
+load_model: None  # If not None, specify folder to load model from, folder specified like "'20260209_091859'"

@@ -1,0 +1,5 @@
+outputs/
+*.png
+*.tar
+runs/
+__pycache__/
