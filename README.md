@@ -1,4 +1,4 @@
-This repo makes it simple to train RNNs on Neurogym cognitive tasks, following [Yang et al. 2019](https://www.nature.com/articles/s41593-018-0310-2). Specifically, I reproduced the main findings of the paper using PyTorch + Hydra.
+This repo makes it simple to train RNNs on [Neurogym](https://neurogym.github.io/neurogym/latest/) cognitive tasks, following [Yang et al. 2019](https://www.nature.com/articles/s41593-018-0310-2). Specifically, I reproduced the main findings of the paper using PyTorch + Hydra.
 
 ## Contents
 
