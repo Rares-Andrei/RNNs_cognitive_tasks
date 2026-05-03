@@ -1,29 +1,3 @@
-# I need to build a function that is able to compute
-# The task variance of all units in the hidden layer
-# of a network based on each task we run it on.
-# Run the network across many different stimulus
-# conditions for each task and compute the
-# variance across stimulus conditions at each time
-# point for a specific unit. Then average across
-# time points to get the final task variance for the unit.
-# Private noise to units should be zero during this procedure.
-# To compute the final variance for unit i in task A:
-# compute the difference between the activity of
-# unit i's activity in trial j at time t and the
-# mean of that unit's activity across all trials
-# at the same time t, and square this difference.
-# Compute this difference for each trial and
-# then divide by the number of trials.
-# Then do this for all time points and then
-# divide by the number of time points.
-# I can write the same evaluation script
-# for yang19 and for each task, compute the
-# task variance of each unit, so i will
-# have an array of shape (N_tasks, N_units)
-# Need to somehow avoid the fixation period.
-# Can look at inputs and only look at time steps
-# for which the input at the fixation index:
-# input[t, 0, 0] == 0.
 import numpy as np
 import torch
 from sklearn.manifold import TSNE
