@@ -27,7 +27,7 @@ yang_2019/
 ## Setup
 
 ```bash
-conda env create -f yang_cpu.yml  # or yang_gpu.yml on a GPU box
+conda env create -f yang_cpu.yml  # or yang_gpu.yml on a GPU
 conda activate yang_2019
 pip install -e .
 ```
@@ -48,7 +48,7 @@ cd scripts/
 python main.py task=GoNogo-v0 model=base_rnn
 ```
 
-Override on the command line:
+You can override on the command line:
 
 ```bash
 python main.py task=ContextDecisionMaking-v0 model=ctrnn hidden_size=256 num_epochs=2000 lr=0.001 tau=1000
@@ -57,7 +57,7 @@ python main.py task=ContextDecisionMaking-v0 model=ctrnn hidden_size=256 num_epo
 Evaluation needs a run timestamp (the folder name under `experiments/{task}/runs/`):
 
 ```bash
-python evaluate.py task=GoNogo-v0 load_model="20260209_091859"
+python evaluate.py task=GoNogo-v0 load_model="'20260209_091859'"
 ```
 
 ## Config
@@ -85,9 +85,9 @@ print(ngym.all_envs())
 
 ## Models
 
-`base_rnn` is a plain RNN - fast, no time constant. You can use it for most discrete-time tasks.
+`base_rnn` is a plain RNN - no time constant. You can use it for discrete-time tasks.
 
-`ctrnn` is a continuous-time RNN with a `tau` parameter controlling how fast neurons integrate. It's slower to train but the dynamics are closer to what you'd expect from biology, and it's the right choice when the task itself has slow timescales.
+`ctrnn` is a continuous-time RNN with a `tau` parameter controlling how fast neurons integrate. It's slower to train but the dynamics are more biologically plausible.
 
 ## Saving results
 
@@ -126,8 +126,8 @@ Train and then evaluate:
 
 ```bash
 python main.py task=GoNogo-v0 model=base_rnn seed=42
-# note the timestamp it prints, then:
-python evaluate.py task=GoNogo-v0 load_model="20260212_143022"
+# note how it saves it and then, for example:
+python evaluate.py task=GoNogo-v0 load_model="'20260212_143022'"
 ```
 
 Sweeping a few CTRNN configs:
@@ -138,7 +138,7 @@ python main.py task=ContextDecisionMaking-v0 model=ctrnn hidden_size=256 tau=500
 python main.py task=ContextDecisionMaking-v0 model=ctrnn hidden_size=256 tau=1000
 ```
 
-Each lands in its own timestamped folder.
+Each is saved in its own timestamped folder.
 
 ## References
 
